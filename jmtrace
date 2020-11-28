@@ -1,5 +1,5 @@
 #!/bin/bash
-JMTRACE_PATH = ./target/jmtrace-1.0-SNAPSHOT-jar-with-dependencies.jar
+JMTRACE_PATH=./target/jmtrace-1.0-SNAPSHOT-jar-with-dependencies.jar
 if [ -e ${JMTRACE_PATH} ]
 then
     java -javaagent:${JMTRACE_PATH} -jar $@
