@@ -1,0 +1,7 @@
+#!/bin/bash
+if [ -e ./target/jmtrace-1.0-SNAPSHOT-jar-with-dependencies.jar ]
+then
+    java -javaagent:./target/jmtrace-1.0-SNAPSHOT-jar-with-dependencies.jar -jar $@
+else
+    >&2 echo "File jmtrace-1.0-SNAPSHOT-jar-with-dependencies.jar not found.\nPlease run 'mvn package' first or set correct path in file jmtrace."
+fi
