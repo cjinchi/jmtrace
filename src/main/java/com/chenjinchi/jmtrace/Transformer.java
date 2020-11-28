@@ -12,7 +12,7 @@ import java.security.ProtectionDomain;
 public class Transformer implements ClassFileTransformer {
     @Override
     public byte[] transform(ClassLoader loader, String className, Class<?> classBeingRedefined, ProtectionDomain protectionDomain, byte[] classfileBuffer) throws IllegalClassFormatException {
-        // Ignore class loaded by Boostrap ClassLoader
+        // Ignore classes loaded by Boostrap ClassLoader or lib classes
         if(loader == null || className.startsWith("java/") || className.startsWith("sun/")){
             return null;
         }
