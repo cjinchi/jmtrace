@@ -30,7 +30,7 @@
                             <addClasspath>true</addClasspath>
                         </manifest>
                         <manifestEntries>
-                            <Premain-Class>com.chenjinchi.jmtrace.Agent</Premain-Class>
+                            <Premain-Class>com.chenjinchi.jmtrace.JMTraceAgent</Premain-Class>
                         </manifestEntries>
                     </archive>
                     <descriptorRefs>
