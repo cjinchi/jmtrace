@@ -5,13 +5,11 @@ import org.objectweb.asm.Opcodes;
 
 public class JavaVirtualMachineUtil {
     public static boolean isCategoryTwoType(String descriptor) {
-        // https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-2.html#jvms-2.11.1
         // Category 2 computational type includes Long and Double
         return "J".equals(descriptor) || "D".equals(descriptor);
     }
 
     public static boolean isCategoryTwoType(int opcode) {
-        // https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-2.html#jvms-2.11.1
         // Category 2 computational type includes Long and Double
         return opcode == Opcodes.LALOAD || opcode == Opcodes.DALOAD || opcode == Opcodes.LASTORE || opcode == Opcodes.DASTORE;
     }

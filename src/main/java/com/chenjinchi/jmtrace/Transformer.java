@@ -13,14 +13,14 @@ public class Transformer implements ClassFileTransformer {
     @Override
     public byte[] transform(ClassLoader loader, String className, Class<?> classBeingRedefined, ProtectionDomain protectionDomain, byte[] classfileBuffer) throws IllegalClassFormatException {
         // Ignore classes loaded by Boostrap ClassLoader or lib classes
-        if(loader == null || className.startsWith("java/") || className.startsWith("sun/")){
+        if (loader == null || className.startsWith("java/") || className.startsWith("sun/")) {
             return null;
         }
 
         ClassReader reader = new ClassReader(classfileBuffer);
-        ClassWriter writer = new ClassWriter(reader,ClassWriter.COMPUTE_FRAMES);
-        ClassAdapter adapter = new ClassAdapter(Opcodes.ASM9,writer);
-        reader.accept(adapter,0);
+        ClassWriter writer = new ClassWriter(reader, ClassWriter.COMPUTE_FRAMES);
+        ClassAdapter adapter = new ClassAdapter(Opcodes.ASM9, writer);
+        reader.accept(adapter, 0);
 
         return writer.toByteArray();
 

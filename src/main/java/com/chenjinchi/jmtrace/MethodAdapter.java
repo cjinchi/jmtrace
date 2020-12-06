@@ -128,10 +128,6 @@ public class MethodAdapter extends MethodVisitor {
             }
             // Stack: ..., arrayref, index, value →
         }
-
-
         this.mv.visitInsn(opcode);
     }
-
-
 }
